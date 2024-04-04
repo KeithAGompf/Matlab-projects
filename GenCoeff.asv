@@ -1,0 +1,31 @@
+function [c] = Gencoeff(n)
+% [C] = GenCoeff(N)
+%
+% n represents number of terms
+% c is the vector of coefficients
+% used for the horner method
+%
+% works properly
+% 
+   i = 0:n;
+   c = (-1).^i .* factorial(n) ./ (factorial(i) .* factorial(n-i))
+
+
+   coefficients = [1, -4, 6, -4, 1];
+
+% Generate x values
+x = -3:0.1:3;
+
+% Evaluate the polynomial for each x
+y = polyval(coefficients, x);
+
+% Plot the polynomial
+plot(x, y, 'LineWidth', 2);
+title('Graph of Quartic Polynomial');
+xlabel('x');
+ylabel('y');
+
+% Optionally, add grid and other formatting
+grid on;
+
+end
